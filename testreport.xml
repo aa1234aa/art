@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Suite" parallel="false">
+<test name="Test1">
+    <listeners>
+        <listener class-name="com.vimalselvam.testng.listener.ExtentTestNgFormatter" />
+    </listeners>
+    <classes>
+        <class name="anan.ceshi.com.test.logina"/>
+        <methodes>
+            <include name="testLogin"></include>
+        </methodes>
+    </classes>
+</test>
+</suite>
