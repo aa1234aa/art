@@ -56,7 +56,7 @@ public class login extends baseDriver{
         } catch (InterruptedException e) {
             e.printStackTrace();
         }*/
-        WebElement user=this.element(this.byStr("username1"));
+        WebElement user=this.element(this.byStr("username"));
         user.isDisplayed();
         WebElement passwo=driver.findElement(By.name("password"));
         passwo.isDisplayed();
