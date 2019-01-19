@@ -7,13 +7,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
 
 import javax.swing.*;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
-public class Test1 {
-    public WebDriver driver;
+@Listeners({ TestngListenerScreenShot.class })
+public class Test1 extends baseDriver{
     public String WindowHandle;
     public void InitDriver(){
         System.setProperty("webdriver.chrome.driver","D:\\BaiduNetdiskDownload\\chromedriver.exe");
@@ -39,6 +40,10 @@ public class Test1 {
      ts.moseAction();
 
     }
+
+
+
+
     public void inputBox(){
         driver.findElement(By.name("email")).sendKeys("18210544883");
         driver.findElement(By.name("password")).sendKeys("anlili123");

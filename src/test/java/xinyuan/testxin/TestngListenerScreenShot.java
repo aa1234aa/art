@@ -1,14 +1,8 @@
 package xinyuan.testxin;
 
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.TestListenerAdapter;
-
-import java.io.File;
-import java.io.IOException;
 
 public class TestngListenerScreenShot extends TestListenerAdapter {
     @Override
@@ -16,8 +10,9 @@ public class TestngListenerScreenShot extends TestListenerAdapter {
         super.onTestFailure(tr);
         takeScreenShot(tr);
     }
+
     private void takeScreenShot(ITestResult tr){
-        baseDriver b=(baseDriver) tr.getInstance();//获取实例
+        baseDriver b=(baseDriver)tr.getInstance();//获取实例
         b.takeScreenShot();
     }
 
