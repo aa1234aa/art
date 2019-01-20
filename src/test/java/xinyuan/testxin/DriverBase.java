@@ -20,5 +20,8 @@ public class DriverBase {
         WebElement element=driver.findElement(by);
         return element;
     }
+    public void get(String url){
+        driver.get(url);
+    }
 
 }

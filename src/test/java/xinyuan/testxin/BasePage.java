@@ -6,7 +6,6 @@ import org.openqa.selenium.WebElement;
 
 public class BasePage {
     public DriverBase driver;
-
     public BasePage(DriverBase driver) {
         this.driver = driver;
     }
@@ -30,6 +29,10 @@ public class BasePage {
         } else {
             System.out.println("元素没有定位到，输入失败");
         }
+    }
+    //判断是否显示
+    public boolean assertElementIs(WebElement element){
+        return element.isDisplayed();
     }
 
 }
