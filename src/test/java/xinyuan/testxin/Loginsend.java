@@ -24,7 +24,6 @@ public class Loginsend extends CaseBase{
     }
   @Test(dependsOnMethods = {"getLoginHome"})
     public void testLogin(){
-        logger.debug("这个是我们第一次使用log4j打印日志");
        loginPro.login("18210544883","anlili123");
     }
 
