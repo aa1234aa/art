@@ -93,6 +93,7 @@
 
             .testMethodsTable { margin-top: 10px; font-size: 12px; }
             .testMethodsTable td { border-width: 1px 0 0 1px; border-color: white; border-style:solid; }
+            .testMethodsTable .detailsBox { padding: 0; background-color: white; border-style: none; height: 0px; }
             .testMethodsTable .testMethodStatusCONF td.firstMethodCell { border-left: 5px solid gray; }
             ]]>
         </xsl:result-document>
@@ -342,13 +343,7 @@
         <xsl:param name="testCaseElements"/>
         <xsl:value-of select="if (count($testCaseElements/class/test-method[(@status='FAIL') and (not(@is-config))]) > 0) then 'suiteStatusFail' else 'suiteStatusPass'"/>
     </xsl:function>
-
-    <xsl:function name="testng:methodsDuration">
-        <xsl:param name="testMethods"/>
-        <xsl:variable name="durationMs" select="sum($testMethods/@duration-ms)"/>
-        <xsl:value-of select="testng:formatDuration($durationMs)"/>
-    </xsl:function>
-
+    
     <xsl:function name="testng:formatDuration">
         <xsl:param name="durationMs"/>
         <!--Days-->
@@ -362,11 +357,11 @@
         <xsl:if test="$durationMs &lt; 86400000">
             <!--Minutes-->
             <xsl:if test="($durationMs > 60000) and ($durationMs mod 3600000 > 1000)">
-                <xsl:value-of select="format-number(($durationMs mod 3600000) div 60000, '#')"/>m
+                <xsl:value-of select="format-number(floor(($durationMs mod 3600000) div 60000), '0')"/>m
             </xsl:if>
             <!--Seconds-->
             <xsl:if test="($durationMs > 1000) and ($durationMs mod 60000 > 1000)">
-                <xsl:value-of select="format-number(($durationMs mod 60000) div 1000, '#')"/>s
+                <xsl:value-of select="format-number(floor(($durationMs mod 60000) div 1000), '#')"/>s
             </xsl:if>
         </xsl:if>
         <!--Milliseconds - only when less than a second-->
@@ -386,7 +381,8 @@
         <xsl:if test="$value">
             <div>
                 <b>
-                    <xsl:value-of select="$label"/>:
+                    <xsl:value-of select="$label"/>
+                    <xsl:text>: </xsl:text>
                 </b>
                 <xsl:value-of select="$value"/>
             </div>
@@ -550,7 +546,7 @@
                                     <xsl:with-param name="totalCount"
                                                     select="testng:suiteMethodsCount($testCaseElements, '*')"/>
                                     <xsl:with-param name="totalDuration"
-                                                    select="testng:methodsDuration($testCaseElements/class/test-method)"/>
+                                                    select="testng:formatDuration(./@duration-ms)"/>                                                    
                                 </xsl:call-template>
                             </tr>
                             <xsl:for-each select="$testCaseElements">
@@ -576,7 +572,7 @@
                                     </td>
                                     <xsl:if test="compare($testNgXslt.showRuntimeTotals, 'true') = 0">
                                         <td align="center" nowrap="true">
-                                            <xsl:value-of select="testng:methodsDuration(./class/test-method)"/>
+                                            <xsl:value-of select="testng:formatDuration(./@duration-ms)"/>
                                         </td>
                                     </xsl:if>
                                 </tr>
@@ -714,7 +710,7 @@
                                 <xsl:with-param name="totalCount"
                                                 select="testng:suiteMethodsCount($testCaseElements, '*')"/>
                                 <xsl:with-param name="totalDuration"
-                                                select="testng:methodsDuration($testCaseElements/class/test-method)"/>
+                                                select="testng:formatDuration($suiteElement/@duration-ms)"/>
                             </xsl:call-template>
                         </tr>
                     </table>
@@ -922,7 +918,7 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="4" style="padding: 0; background-color: white; border-style: none; height: 0px;">
+                <td colspan="4" class="detailsBox">
                     <div id="{$detailsId}" class="testMethodDetails">
                         <xsl:call-template name="formField">
                             <xsl:with-param name="label" select="'Name'"/>
@@ -939,8 +935,7 @@
                         <xsl:if test="./params">
                             <xsl:call-template name="formField">
                                 <xsl:with-param name="label" select="'Parameters'"/>
-                                <xsl:with-param name="value"
-                                                select="testng:concatParams(./params/param)"/>
+                                <xsl:with-param name="value" select="testng:concatParams(./params/param)"/>
                             </xsl:call-template>
                         </xsl:if>
                         <xsl:call-template name="formField">
@@ -978,7 +973,7 @@
             </tr>
             <tr>
                 <xsl:if test="exception">
-                    <td colspan="4" style="padding: 0; background-color: white; border-style: none; height: 0px;">
+                    <td colspan="4" class="detailsBox">
                         <div id="{$exceptionDetailsId}" class="testMethodDetails">
                             <xsl:choose>
                                 <xsl:when test="exception/full-stacktrace">
@@ -1041,7 +1036,7 @@
                                                     select="testng:testCaseMethodsCount(., 'SKIP')"/>
                                     <xsl:with-param name="totalCount" select="testng:testCaseMethodsCount(., '*')"/>
                                     <xsl:with-param name="totalDuration"
-                                                    select="testng:methodsDuration(./class/test-method)"/>
+                                                    select="testng:formatDuration(./@duration-ms)"/>
                                 </xsl:call-template>
                             </tr>
                         </table>

@@ -2,7 +2,7 @@
 <suite name="Suite" parallel="false">
     <test name="Test1">
         <listeners>
-            <listener class-name="com.vimalselvam.testng.listener.ExtentTestNgFormatter" />
+            <listener class-name="xinyuan.testxin.ExtentTestNGIReporterListener"/>
         </listeners>
         <classes>
             <class name="anan.ceshi.com.test.logina">
