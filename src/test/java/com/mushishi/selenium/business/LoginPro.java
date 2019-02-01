@@ -17,7 +17,7 @@ public class LoginPro {
 		if(lph.assertLoginPage()){
 			lph.sendKeysUser(username);
 			lph.sendKeysPassword(password);
-			driver.findElement(By.className("moco-btn moco-btn-red moco-btn-lg btn-full xa-login")).click();
+			driver.findElement(By.className("moco-btn")).click();
 			//lph.clickAutoSignin();
 			//lph.clickLoginButton();
 		}else{

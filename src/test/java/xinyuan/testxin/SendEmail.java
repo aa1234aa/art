@@ -72,7 +72,7 @@ public class SendEmail {
             MimeBodyPart messageBodyPart2 = new MimeBodyPart();
 
             // 设置邮件中附件文件的路径
-            String filename = ".\\test-output\\emailable-report.html";
+            String filename = ".\\test-output\\index.html";
 
             // 创建一个datasource对象，并传递文件
             DataSource source = new FileDataSource(filename);
