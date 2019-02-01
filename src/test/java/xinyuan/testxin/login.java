@@ -5,6 +5,7 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -35,7 +36,7 @@ public class login extends baseDriver{
 
     }
 
-    @Test
+
     public void mytest() throws Exception{
         HashMap<String,String> user=new HashMap<String, String>();
         user.put("18210544883","anlili123");
@@ -46,17 +47,18 @@ public class login extends baseDriver{
             String password=entry.getValue().toString();
             loginScript(username,password);
         }
+
     }
 
     //登陆脚本
     public void loginScript(String username,String password) throws Exception{
         this.InitDriver();
-       /* try {
-            Thread.sleep(2000);
+        try {
+            Thread.sleep(4000);
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }*/
-        WebElement user=this.element(this.byStr("username"));
+        }
+        WebElement user=driver.findElement(this.byStr("username"));
         user.isDisplayed();
         WebElement passwo=driver.findElement(By.name("password"));
         passwo.isDisplayed();
@@ -70,7 +72,7 @@ public class login extends baseDriver{
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        WebElement header=driver.findElement(By.id("header-avator"));
+        /*WebElement header=driver.findElement(By.id("header-avator"));
         header.isDisplayed();
         Actions actions=new Actions(driver);
         actions.moveToElement(header).perform();
@@ -78,19 +80,18 @@ public class login extends baseDriver{
             Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }
-        String userInfo=this.element(By.className("name")).getText();
+        }*/
+       /* String userInfo=driver.findElement(By.className("name")).getText();
         if (userInfo.equals("平安")) {
             System.out.println("登陆成功");
         } else {
             System.out.println("登陆失败");
-        }
-        driver.close();
+        }*/
     }
-    public WebElement element(By by){
+ /*   public WebElement element(By by){
         WebElement ele=driver.findElement(by);
         return ele;
-    }
+    }*/
     public By byStr(String username){
         ProUtil proUtil=new ProUtil("xinyuan.properties");
         String locator=proUtil.getPro(username);
@@ -106,6 +107,18 @@ public class login extends baseDriver{
             return By.xpath(locatorValue);
         }
     }
-
+    public String getCourseText(WebElement element){
+        return element.getText();
+    }
+/*    public void buyCourse(){
+        String courseDetail=driver.findElement(By.className("path")).findElement(By.tagName("span")).getText();
+        driver.findElement(By.id("buy-trigger"));
+        driver.findElement(By.linkText("提交订单")).click();
+        String orderTest=driver.findElement(By.id("num")).getText();
+        if(orderTest!=null){
+            driver.findElement(By.id("left")).findElement(By.tagName("dt")).getText();
+        }
+        Assert.assertEquals(courseDetail,orderTest,"购买的商品信息不一样");
+    }*/
 
 }

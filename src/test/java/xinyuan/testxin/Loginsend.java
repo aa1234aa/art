@@ -2,6 +2,7 @@ package xinyuan.testxin;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class Loginsend extends CaseBase{
@@ -25,6 +26,17 @@ public class Loginsend extends CaseBase{
   @Test(dependsOnMethods = {"getLoginHome"})
     public void testLogin(){
        loginPro.login("18210544883","anlili123");
+      try {
+          Thread.sleep(3000);
+      } catch (InterruptedException e) {
+          e.printStackTrace();
+      }
+       driver.get("https://coding.imooc.com/");
+      try {
+          Thread.sleep(3000);
+      } catch (InterruptedException e) {
+          e.printStackTrace();
+      }
     }
 
 }

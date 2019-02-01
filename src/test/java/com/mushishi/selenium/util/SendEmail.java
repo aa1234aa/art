@@ -5,7 +5,7 @@ public class SendEmail {
 /*	public static void sendToEmail(String content){
 		SimpleEmail email = new SimpleEmail();
 		email.setHostName("smtp.163.com");
-		email.setAuthentication("mushishi_xu@163.com", "xu221168");
+		email.setAuthentication("mushishi_xu@163.com", "xu221168"); 登陆
 		try {
 			email.setFrom("mushishi_xu@163.com");
 			email.addTo("609037724@qq.com");
