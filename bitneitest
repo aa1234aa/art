@@ -1,0 +1,7 @@
+url=http://192.168.1.114:8000/admin/login.html
+username=admin
+password=bitnei
+txtVeryCode=bitnei
+loginbtn =className>loginbtn 
+btnreg=id>btnreg
+yq=admin

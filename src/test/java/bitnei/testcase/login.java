@@ -35,7 +35,7 @@ public class login extends CaseBase {
     @Parameters({"username","password","txtVeryCode"})
     public void bitneiLogin(String username,String password,String txtVeryCode){
         lop.login(username,password,txtVeryCode);
-        driver.get("http://192.168.1.114:8000/report-ui/index.html");
+        driver.get("http://192.168.1.114:8000/evsmc_monitor_service/monitorBord/new");
     }
 
 }

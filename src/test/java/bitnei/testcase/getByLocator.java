@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 
 public class getByLocator {
 	public static By getLocator(String key){
-		ProUtil pro = new ProUtil("bitnei.properties");
+		ProUtil pro = new ProUtil("anan.properties");
 		String locator = pro.getPro(key);
 		String locatorType = locator.split(">")[0];
 		String locatorValue = locator.split(">")[1];

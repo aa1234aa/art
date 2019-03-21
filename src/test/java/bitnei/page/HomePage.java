@@ -19,6 +19,7 @@ public class HomePage extends BasePage{
     }
     //获取用户名
     public WebElement getUserNmaeElement(){
+        driver.switchToMode();
         return element(getByLocator.getLocator("name"));
     }
 }
