@@ -47,9 +47,9 @@ public class SuitTestLogin extends CaseBase{
             System.out.println("登陆失败");
         }
     }
-    @AfterClass
+   /*@AfterClass
     public void afterClass(){
       driver.close();
-    }
+    }*/
 
 }
