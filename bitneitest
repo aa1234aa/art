@@ -1,7 +1,7 @@
-url=http://192.168.1.114:8000/admin/login.html
+url=http://192.168.1.108:6060/login
 username=admin
 password=bitnei
 txtVeryCode=bitnei
-loginbtn =className>loginbtn 
+loginbtn =id>submit 
 btnreg=id>btnreg
 yq=admin

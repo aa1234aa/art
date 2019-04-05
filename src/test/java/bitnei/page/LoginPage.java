@@ -5,6 +5,8 @@ import bitnei.base.DriverBase;
 import bitnei.testcase.getByLocator;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
+
 /**
  * anliping
  * 登陆页面元素
@@ -12,6 +14,14 @@ import org.openqa.selenium.WebElement;
 public class LoginPage extends  BasePage{
     public LoginPage(DriverBase driver) {
         super(driver);
+    }
+
+
+    public WebElement aa(){
+        WebElement aa= element(getByLocator.getLocator("sendname"));
+        List<WebElement> elements= aa.findElements(getByLocator.getLocator("el-row"));
+        System.out.println(elements.size());
+        return aa;
     }
     /*获取用户名输入框
     **/

@@ -27,12 +27,12 @@ public class DriverBase {
 	}
 	
 	/**
-	 * 封装Element方法
-	 * */
-	public WebElement findElement(By by){
-		WebElement element = driver.findElement(by);
-		return element;
-	}
+     * 封装Element方法
+     * */
+    public WebElement findElement(By by){
+        WebElement element = driver.findElement(by);
+        return element;
+    }
 	/**
 	 * 封装定位一组elements的方法
 	 * */

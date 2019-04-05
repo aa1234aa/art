@@ -7,7 +7,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class SelectDriver {
 	public WebDriver driverName(String browser){
 		if(browser.equalsIgnoreCase("fireFox")){
-			System.setProperty("webdriver.firefox.marionette", "D:\\java\\geckodriver\\geckodriver-v0.14.0-win64\\geckodriver.exe");
+			System.setProperty("webdriver.firefox.marionette", "D:\\geckodriver.exe");
 			return new FirefoxDriver();
 		}else{
 

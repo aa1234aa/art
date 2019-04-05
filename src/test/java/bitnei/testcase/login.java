@@ -24,7 +24,7 @@ public class login extends CaseBase {
     }
     @Test
     public void loginHome(){
-       driver.get("http://192.168.1.114:8000/admin/login.html");
+       driver.get("http://192.168.1.108:6060/login");
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {
