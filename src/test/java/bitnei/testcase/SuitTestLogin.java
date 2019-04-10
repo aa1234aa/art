@@ -3,6 +3,7 @@ package bitnei.testcase;
 import bitnei.base.DriverBase;
 import bitnei.business.HomePro;
 import bitnei.business.LoginPro;
+import bitnei.util.HandleCookie;
 import bitnei.util.ProUtil;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -19,9 +20,11 @@ public class SuitTestLogin extends CaseBase{
     public LoginPro lop;
     public ProUtil pro;
     public HomePro hp;
+    public HandleCookie handleCookie;
   @BeforeClass
     public void beforeClass() {
         this.driver=InitDriver("chrome");
+        handleCookie=new HandleCookie(driver);
         pro=new ProUtil("bitneitest");
         hp=new HomePro(driver);
         //全局等待
@@ -44,13 +47,14 @@ public class SuitTestLogin extends CaseBase{
         //hp.AssertLogin(pro.getPro("yq")
         if(true){
             System.out.println("登录成功"+username);
+            handleCookie.writeCookie();
         }else{
             System.out.println("登陆失败");
         }
     }
-   /*@AfterClass
+   @AfterClass
     public void afterClass(){
       driver.close();
-    }*/
+    }
 
 }
