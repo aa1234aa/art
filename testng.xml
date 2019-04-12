@@ -5,7 +5,8 @@
     <parameter name ="txtVeryCode" value="bitnei"/>
     <test name="Test1">
         <classes>
-            <class name="bitnei.testcase.login"/>
+            <class name="bitnei.testcase.SuitTestLogin"/>
+            <class name="bitnei.testcase.SuitHome"/>
         </classes>
     </test>
 </suite>

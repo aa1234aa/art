@@ -66,13 +66,13 @@ public class testCourseList extends CaseBase {
 
     public static void getNewName(String sourcepara,int i) {
         if (i==1){
-            sourcepara="aa";
+            sourcepara="LookPage";
         }
         if (i==2){
-            sourcepara="aa";
+            sourcepara="LookPage";
         }
         if (i==3){
-            sourcepara="aa";
+            sourcepara="LookPage";
         }
 
     }

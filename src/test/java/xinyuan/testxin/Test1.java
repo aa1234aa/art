@@ -100,7 +100,7 @@ public class Test1 extends baseDriver{
         JavascriptExecutor js=(JavascriptExecutor)driver;
         js.executeScript(jsString);
         driver.findElement(By.className("js-avator-link")).click();
-        driver.findElement(By.id("upload")).sendKeys("C:\\Users\\Lenovo\\Desktop\\aa.png");
+        driver.findElement(By.id("upload")).sendKeys("C:\\Users\\Lenovo\\Desktop\\LookPage.png");
     }
     public void downSelectBox(){
         driver.get("https://www.imooc.com/user/setprofile");
